@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">androidday2togle</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="spn0s_items">
+        <item >Windows</item>
+        <item >Linux</item>
+        <item >Mac</item>
+    </string-array>
+    <string name="spn0s_prompt">OSを選択してください</string>
+
+</resources>
