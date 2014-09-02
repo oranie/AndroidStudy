@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="focused">#0000FF</color>
+    <color name="pressed">#00FF00</color>
+    <color name="normal">#0FFFFF</color>
+    <color name="enabled">#FF0000</color>
+    <color name="active">#FFFFF0</color>
+    
+    <color name="normalBcak">#000099</color>
+    <color name="warnBcak">#009900</color>
+    <color name="cautBack">#990000</color>
+    <color name="normalPress">#0000FF</color>
+    <color name="warnPress">#00FF00</color>
+    <color name="cautPress">#FF0000</color>
+</resources>
