@@ -37,7 +37,7 @@ public class DrawerDatabaseHelper extends SQLiteOpenHelper {
 		db.beginTransaction();
 		try {
 			SQLiteStatement sqLiteStatement = db.compileStatement(
-				"INSERT INTO books(id,title,url) VALUES(?,?,?)");
+				"INSERT INTO hatebu(id,title,url) VALUES(?,?,?)");
 			for (int i = 0; i < titles.length; i++) {
 				sqLiteStatement.bindLong(1, i);
 				sqLiteStatement.bindString(2, titles[i]);

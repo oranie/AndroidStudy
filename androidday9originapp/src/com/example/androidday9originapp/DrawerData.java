@@ -6,8 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.androidday5sqlite.SimpleDatabaseHelper;
-
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -18,20 +17,32 @@ public class DrawerData {
 	public ArrayList<String> drawerTitleList ;
 	public ArrayList<String> drawerUrlList;
 	public Map<String, String> drawerData;;
-	private SimpleDatabaseHelper helper = null;
+	private DrawerDatabaseHelper helper = null;
+	private SQLiteDatabase hatebuDatabase;
 	
-	public DrawerData() {
-		helper = new SimpleDatabaseHelper(this);
-
+	public DrawerData(Context context) {
+		drawerData = new HashMap<String, String>();
+		drawerTitleList = new ArrayList<String>();
+		drawerUrlList = new ArrayList<String>();
+		
+		helper = new DrawerDatabaseHelper(context);
+		drawerSearch();
+		Log.d("SQLite RESULT", drawerTitleList.toString());
     }
-	public void drawerSearch(View view) {
-		SQLiteDatabase db = helper.getReadableDatabase();
-		String[] cols = {"id","title","url"};
-		Cursor cs = db.query("hatebu", cols, "isbn = ?", null, null,null,null,null);
-		if (cs.moveToFirst()) {
+	public void drawerSearch() {
+		hatebuDatabase = helper.getWritableDatabase();
+		Cursor cursor = hatebuDatabase.query("hatebu",
+				new String[] {"id", "title","url"}, null, null, null, null, "id DESC");
+        
+        int indexid = cursor.getColumnIndex( "id" );
+        int titleid = cursor.getColumnIndex( "title" );
+        int urlid = cursor.getColumnIndex( "url" );
 
-        } else {
-        	Toast.makeText(this,"データがありません", Toast.LENGTH_LONG).show();
+        while( cursor.moveToNext() ){
+            // 検索結果をCursorから取り出す
+            //cursor.getInt( id );
+        	drawerTitleList.add(cursor.getString( titleid ));
+            drawerUrlList.add(cursor.getString( urlid  ));
         }
     }
 	

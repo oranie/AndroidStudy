@@ -67,7 +67,7 @@ public class MainActivity extends ActionBarActivity {
 		mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerListView =  (ListView) findViewById(R.id.drawerList);
 		
-		DrawerData drawerData = new DrawerData();
+		DrawerData drawerData = new DrawerData(this);
 		ArrayList<String> drawerTitleList = drawerData.getDrawerTitleList();
 		
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, 
