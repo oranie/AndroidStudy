@@ -21,11 +21,8 @@ public class DrawerDatabaseHelper extends SQLiteOpenHelper {
 	
 	@Override
 	public void onCreate(SQLiteDatabase db){
-		Log.d("DB","CREATE TABLE Go!!");
 		db.execSQL("CREATE TABLE hatebu (" +
 				"id long PRIMARY KEY,title TEXT,url TEXT)");
-		Log.d("DB","CREATE TABLE EXECTE");
-		
 		
 		String[] titles = {"総合","一般","社会","政治・経済","生活・人生","スポーツ・芸能・音楽","科学・学問","コンピュータ・IT","ゲーム・アニメ","おもしろ","動画"};
 		String[] urls = {"http://feeds.feedburner.com/hatena/b/hotentry","http://b.hatena.ne.jp/hotentry.rss?mode=general",
@@ -53,7 +50,7 @@ public class DrawerDatabaseHelper extends SQLiteOpenHelper {
 	
 	@Override
 	public void onUpgrade(SQLiteDatabase db,int old_v,int new_v){
-		db.execSQL("DROP TABLE IF EXITS books");
-		onCreate(db);
+		//db.execSQL("DROP TABLE IF EXITS books");
+		//onCreate(db);
 	}
 }
